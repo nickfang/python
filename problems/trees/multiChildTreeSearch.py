@@ -1,33 +1,13 @@
-class Node():
-	def __init__(self, value):
-		self.value = value
-		self.children = []
+import TreeMulti as Tree
 
-	def _printNodes(self, node):
-		print(", " + str(node.value), end="")
-		if node.children != []:
-			for itr in node.children:
-				node._printNodes(itr)
-			return
-
-	def printTree(self):
-		print(self.value, end="")
-		for itr in self.children:
-			self._printNodes(itr)
-		print("")
-
-	# makes class work with the print() function
-	def __str__(self):
-		return str(self.value)
-
-a = Node(1)
-b = Node(2)
-c = Node(3)
-d = Node(4)
-e = Node(5)
-f = Node(6)
-g = Node(4)
-h = Node(7)
+a = Tree.Node(1)
+b = Tree.Node(2)
+c = Tree.Node(3)
+d = Tree.Node(4)
+e = Tree.Node(5)
+f = Tree.Node(6)
+g = Tree.Node(4)
+h = Tree.Node(7)
 
 a.children.append(b)
 a.children.append(c)
