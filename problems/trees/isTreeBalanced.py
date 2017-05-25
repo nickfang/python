@@ -51,7 +51,7 @@ def isBalanced(head):
 		if numNodes == 0:
 			numNodes, numNextNodes = numNextNodes, numNodes
 			level += 1
-	return max(leafLevels) - min(leafLevels) < 3
+	return max(leafLevels) - min(leafLevels) <= 1
 
 balancedTree = createBalancedTree(63)
 T.displayTree(balancedTree)
