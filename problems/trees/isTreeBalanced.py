@@ -5,6 +5,7 @@ import TreeBin as T
 # creates a tree with the number of nodes is the value of size where ever node is the left chile of the previous node
 def createUnbalancedTree(size):
 	nodeList = [ T.Node(x) for x in range(size) ]
+	nodeList[0].right = T.Node(size)
 	for x in range(size-1):
 		nodeList[x].left = nodeList[x+1]
 	return nodeList[0]
@@ -40,23 +41,21 @@ def isBalanced(head):
 		if nodes[0].left != None:
 			nodes.append(nodes[0].left)
 			numNextNodes += 1
-		else:
-			leafLevels.add(level)
 		if nodes[0].right != None:
 			nodes.append(nodes[0].right)
 			numNextNodes += 1
-		else:
+		if nodes[0].left == nodes[0].right == None:
 			leafLevels.add(level)
 		nodes.pop(0)
 		numNodes -= 1
 		if numNodes == 0:
 			numNodes, numNextNodes = numNextNodes, numNodes
 			level += 1
-	return len(leafLevels) < 3
+	return max(leafLevels) - min(leafLevels) < 3
 
 balancedTree = createBalancedTree(63)
 T.displayTree(balancedTree)
-unbalancedTree = createUnbalancedTree(12)
+unbalancedTree = createUnbalancedTree(6)
 T.displayTree(unbalancedTree)
 
 print(isBalanced(balancedTree))
