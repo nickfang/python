@@ -53,10 +53,27 @@ def isBalanced(head):
 			level += 1
 	return max(leafLevels) - min(leafLevels) <= 1
 
+# returns [minDepth, maxDepth]
+def maxMinDepth(head):
+	if head == None:
+		return [0,0];
+	lReturn = maxMinDepth(head.left)
+	rReturn = maxMinDepth(head.right)
+	return [1+min(lReturn[0], rReturn[0]), 1 + max(lReturn[1], rReturn[1])]
+
+def isBalanced2(head):
+	depths = maxMinDepth(head)
+
+	return depths[1] - depths[0] <= 1
+
 balancedTree = createBalancedTree(63)
 T.displayTree(balancedTree)
-unbalancedTree = createUnbalancedTree(6)
+unbalancedTree = createUnbalancedTree(5)
 T.displayTree(unbalancedTree)
 
 print(isBalanced(balancedTree))
 print(isBalanced(unbalancedTree))
+
+print(isBalanced2(balancedTree))
+print(isBalanced2(unbalancedTree))
+

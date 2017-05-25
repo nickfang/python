@@ -17,4 +17,6 @@ def addNode(values, start, end):
 
 
 size = 32
-T.displayTree(createBST(size))
+a = createBST(size)
+T.displayTree(a)
+T.printTree(a, 1)

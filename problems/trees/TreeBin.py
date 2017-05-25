@@ -14,29 +14,6 @@ class Deque(object):
 	def removeBack(self):
 		return self.items.pop(0)
 
-# print tree is a specific order.
-# 0 - pre order
-# 1 - in order
-# 2 - post order
-def printTree(head, order=0):
-	_printTree(head, order)
-	print()
-
-def _printTree(head, order):
-	if head != None:
-		if order == 0:
-			print(head.value, end=" ")
-			_printTree(head.left, 0)
-			_printTree(head.right, 0)
-		if order == 1:
-			_printTree(head.left, 1)
-			print(head.value, end=" ")
-			_printTree(head.right, 1)
-		if order == 2:
-			_printTree(head.left, 2)
-			_printTree(head.right, 2)
-			print(head.value, end=" ")
-
 
 #               0
 #        1              2
@@ -48,7 +25,6 @@ def _printTree(head, order):
 #       3               4               5               6
 #   7       8       9      10      11      12      13      14
 #15  16  17  18  19  20  21  22  23  24  25  26  27  28  29  30
-
 
 # print out the tree in tree form
 # if a node is None, a * is printed so it is easier to see the shape of the tree
@@ -95,9 +71,7 @@ def displayTree(head):
 					tempNodeList.addFront(None)
 				else:
 					tempNodeList.addFront(node.right)
-
 		print()
-
 
 # figure out the height of the tree and the length of the longest node.value
 # return an array [<height>, <length of node.value>]
@@ -112,3 +86,39 @@ def _getHeightandMaxLen(node):
 	return [1 + max(lReturn[0], rReturn[0]), maxLen]
 
 
+# print tree is a specific order.
+# 0 - pre order
+# 1 - in order
+# 2 - post order
+def printTree(head, order=0):
+	_printTree(head, order)
+	print()
+
+def _printTree(head, order):
+	if head != None:
+		if order == 0:
+			print(head.value, end=" ")
+			_printTree(head.left, 0)
+			_printTree(head.right, 0)
+		if order == 1:
+			_printTree(head.left, 1)
+			print(head.value, end=" ")
+			_printTree(head.right, 1)
+		if order == 2:
+			_printTree(head.left, 2)
+			_printTree(head.right, 2)
+			print(head.value, end=" ")
+
+# create a balanced binary search tree
+def createBST(size):
+	values = [x for x in range(size)]
+	return _addBSTNode(values, 0, size-1)
+
+def _addBSTNode(values, start, end):
+	if (end < start):
+		return None
+	mid = (start + end) // 2
+	tempNode = Node(values[mid])
+	tempNode.left = _addBSTNode(values, start, mid - 1)
+	tempNode.right = _addBSTNode(values, mid + 1, end)
+	return tempNode
