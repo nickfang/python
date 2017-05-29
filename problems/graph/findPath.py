@@ -9,7 +9,7 @@ graph = {'A': set(['B', 'C']),
 def findPath(graph, start, end, path=[]):
 	# NOTE: can't use append because then we would modify the path in the caller.  We need to create a new list.
 	path = path + [start]
-	print(path)
+	# print(path)
 	if start == end:
 		return path
 	if not start in graph.keys():

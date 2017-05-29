@@ -5,3 +5,5 @@ graph = {'A': set(['B', 'C']),
          'E': set(['B', 'F']),
          'F': set(['C', 'E']) }
 
+del searchDF(graph):
+ 	pass
