@@ -64,7 +64,6 @@ def getAnagramIndices(haystack, needle, checkAnagramFunction):
 
     return results
 
-# 3 of 11 passed
 
 def getRandomString(length):
     return "".join(random.choice(string.ascii_lowercase) for _ in range(length))
@@ -82,5 +81,5 @@ result = getAnagramIndices(haystack, needle, checkAnagram2)
 endTime = time.time() - startTime
 print("Method2: ", endTime)
 
-# for x in result:
-#     print(haystack[x:x+len(needle)])
+for x in result:
+    print(haystack[x:x+len(needle)])
