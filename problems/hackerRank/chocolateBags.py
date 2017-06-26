@@ -37,8 +37,8 @@ def minimumChocolateMoves(n, X):
     # if there are an odd number of odd bags and an even number of all chocolates or
     # if there are an even number of odd bags and an odd number of all chocolates
     # then there's going to be a chocolate that doesn't fit anywhere
-    if (numOddBags % 2 == 1) and numberOfChocolates % 2 == 0 or \
-       (numOddBags % 2 == 0) and numberOfChocolates % 2 == 1:
+    if (numOddBags % 2 == 1 and numberOfChocolates % 2 == 0) or \
+       (numOddBags % 2 == 0 and numberOfChocolates % 2 == 1):
         return -1
 
     # if there are not enough chocolates to satisfy a minimun number of chocolates in each bag
