@@ -39,13 +39,13 @@ print(myrange2(5,10))
 print(myrange2(5,20,4))
 
 for x in myrange3(5):
-    print(x)
+    print(x, end=" ")
 print()
 
-for x in myrange3(15,10):
-    print(x)
+for x in myrange3(5,10):
+    print(x, end=" ")
 print()
 
 for x in myrange3(5,20,3):
-    print(x)
+    print(x, end=" ")
 print()
